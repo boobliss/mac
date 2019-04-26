@@ -1,0 +1,26 @@
+def isint(s):
+    try:
+        int(s)
+        return True
+    except ValueError:
+        return False
+
+
+while True:
+    print('enter the height of the pyramid from 1 to 23')
+    height = input()
+    if not isint(height) == True :
+        continue
+    height = int(height)
+    if not (height<24) and (height>0) :
+        continue
+    break
+
+x = height
+y = 0
+while True:
+    x = x - 1
+    y = y + 1
+    print(' '*x, '#'*y, '#', sep='')
+    if (x == 0) or ( y == height):
+        break
