@@ -1,0 +1,48 @@
+def divisionFunction(number, divider):
+    if number % divider == 0:
+        return True
+    else:
+        return False
+        
+
+x = 50
+sumx = 0
+y = 10
+sumy = 0
+z = 5
+sumz = 0
+j = 1
+sumj = 0
+
+
+shortChange = int(input('Введите количество сдачи: '))
+while True:
+    if shortChange == 0:
+        break
+    if divisionFunction(shortChange, x) == True:
+        shortChange = shortChange-x
+        sumx = sumx+1
+        continue
+    if shortChange == 0:
+        break
+    if divisionFunction(shortChange, y) == True:
+        shortChange = shortChange-y
+        sumy = sumy+1
+        continue
+    if shortChange == 0:
+        break
+    if divisionFunction(shortChange, z) == True:
+        shortChange = shortChange-z
+        sumz = sumz+1
+        continue
+    if shortChange == 0:
+        break
+    if divisionFunction(shortChange, j) == True:
+        shortChange = shortChange-j
+        sumj = sumj+1
+        continue
+    if shortChange == 0:
+        break
+
+print('Будет выдано: {} монет номиналом 50, {} монет номиналом 10, {} монет номиналом 5, {} монет номиналом 1'.format(sumx,sumy,sumz,sumj))
+print('Будет выдано %s монет'%(sumx+sumy+sumz+sumj))
