@@ -1,0 +1,20 @@
+question=int(input('to sort the list or not?(1 = yes/ 0 = no): '))
+
+dictionary = {'Kenneth E. Iverson': 'APL','John Backus': 'Fortran',
+              'Walter Bright': 'C++', 'Roberto Ierusalimschy':'LUA',
+              'Tomas E. Kurtz':'ADA','Larry Wall':'PERL',
+              'John McCarthy':'LISP','Yukihiro Matsumoto':'Ruby',
+              'Seymour A. Papert':'Logo','Brian W. Kernighan':'AWK'}
+
+if question==1:
+    list_keys = list(dictionary.keys())
+    list_keys.sort()
+    for x in list_keys:
+        print(x)
+if question==0:
+    list_keys = list(dictionary.keys())
+    for x in list_keys:
+        print(x)
+
+s=input('enter the name: ')
+print('he created ' + dictionary.get(s))
