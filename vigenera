@@ -1,0 +1,33 @@
+import re
+
+letter = input("enter Russian text to encrypt: ");
+
+alpha_ = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
+alpha = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя"
+
+while(True):
+    try:
+        key = input("enter keywords: ")
+        break
+    except:
+        print("invalid key entered")
+
+res = ""
+x = 0
+for y in letter:
+    if re.search(r"[0-9]", y):
+        res += y
+    else:
+        if y == " ":
+            res += " "
+        else:
+            if re.search(r"[А-Я]", y):
+                alpha_ += alpha_[(alpha_.index(y) + alpha.index(key[x])) % 33]
+            else:
+                res += alpha[(alpha.index(y) + alpha.index(key[x])) % 33]
+            if x == len(key) - 1:
+                x = 0
+            else:
+                x += 1
+
+print("Result: " + res)
