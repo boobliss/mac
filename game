@@ -1,0 +1,77 @@
+while True:
+    try:
+        m = int(input("enter square size (3 or 4): "))
+        if m == 3 or m == 4:
+            break
+        else:
+            print ("error.")
+    except (TypeError, ValueError):
+        print("enter integer.")
+
+massiv = []
+def init ():
+    if m == 4:
+        a = 15 #a - числа в пятнашках
+    else:
+        a = 8
+    for x in range(m): #x строчки
+        massiv.append([])
+        for y in range (m): #y столбцы
+            massiv [x].append (a)
+            a = a - 1
+    if m == 4:
+        massiv[3][1], massiv[3][2] = massiv[3][2],massiv[3][1]
+
+def draw():
+    for x in range (m):
+        for y in range(m):
+            if massiv[x][y] == 0:
+                print('_ ', " ", end = '')
+            elif massiv[x][y] >= 1 and massiv[x][y] <= 9:
+                print(massiv[x][y], '  ', end = '')
+            else:
+                print(massiv[x][y], ' ', end = '')
+        print('\n')
+init()
+draw()
+
+def move():
+    step = input('press the key to move: ')
+    for x in range(m):ß
+        for y in range(m):
+            if massiv[x][y] == 0:
+                break
+        if massiv[x][y] == 0:
+            break
+    if step == 'w':
+        if x > 0:
+            massiv[x][y],massiv[x-1][y] = massiv[x-1][y],massiv[x][y]
+    elif step == 's':
+        if x < m - 1:
+            massiv[x][y], massiv[x + 1][y] = massiv[x + 1][y], massiv[x][y]
+    elif step == 'd':
+        if y < m - 1:
+            massiv[x][y], massiv[x][y + 1] = massiv[x][y + 1], massiv[x][y]
+    elif step == 'a':
+        if y > 0:
+            massiv[x][y], massiv[x][y - 1] = massiv[x][y - 1], massiv[x][y]
+
+def won():
+    b = 1
+    a = 0
+    for x in range(m):
+        for y in range(m):
+            a = a + 1
+            if x == m - 1 and y == m - 1:
+                a = 0
+            if massiv[x][y] != a:
+                b = 0
+    if b == 1:
+        print('you win!')
+    return b
+
+while True:
+    move()
+    draw()
+    if won() == 1:
+        break
